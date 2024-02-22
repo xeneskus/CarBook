@@ -1,7 +1,6 @@
 ﻿using CarBook.Application.Features.Mediator.Commands.ServiceCommands;
 using CarBook.Application.Features.Mediator.Queries.ServiceQueries;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CarBook.WebApi.Controllers
