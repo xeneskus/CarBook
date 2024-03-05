@@ -3,7 +3,7 @@ using MediatR;
 
 namespace CarBook.Application.Features.Mediator.Queries.StatisticsQueries
 {
- {
+ 
     public class GetCarCountQuery : IRequest<GetCarCountQueryResult>
     {
     }
