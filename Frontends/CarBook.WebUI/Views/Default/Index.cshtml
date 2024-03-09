@@ -16,7 +16,7 @@
 <html lang="en">
 @await Component.InvokeAsync("_HeadUILayoutComponentPartial")
 
-<body>
+ <body>
 
     @await Component.InvokeAsync("_NavbarUILayoutComponentPartial")
 
@@ -32,7 +32,7 @@
                                 <h2>Şimdi Aracınızı Kiralayın</h2>
                                 <div class="form-group">
                                     <label for="" class="label">Alınacak Lokasyon</label>
-                                    @*@Html.DropDownListFor(x=>x.LocationID,(List<SelectListItem>)ViewBag.v,new {@class="form-control",@id="drop"})*@
+                                    @Html.DropDownListFor(x=>x.LocationID,(List<SelectListItem>)ViewBag.v,new {@class="form-control",@id="drop"})
                                 </div>
 
                                 <div class="d-flex">
@@ -113,5 +113,5 @@
 
     @await Component.InvokeAsync("_ScriptUILayoutComponentPartial")
 
-</body>
+ </body>
 </html>
