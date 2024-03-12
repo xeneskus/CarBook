@@ -8,7 +8,6 @@ public class CarBookContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
-        //optionsBuilder.UseSqlServer("Data Source=NIRVANA\SQLEXPRESS05;Initial Catalog=UdemyNet5TokenDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
         optionsBuilder.UseSqlServer("Server=NIRVANA\\SQLEXPRESS05;initial Catalog=CarBookDb;integrated Security=true;TrustServerCertificate=true;");
     }
     public DbSet<About> Abouts { get; set; }
@@ -34,4 +33,19 @@ public class CarBookContext : DbContext
     public DbSet<RentACar> RentACars { get; set; }
     public DbSet<RentACarProcess> RentACarProcesses { get; set; }
     public DbSet<Customer> Customers { get; set; }
+    public DbSet<Reservation> Reservations { get; set; }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Reservation>()
+            .HasOne(x => x.PickUpLocation)
+            .WithMany(y => y.PickUpReservation)
+            .HasForeignKey(z => z.PickUpLocationID)
+            .OnDelete(DeleteBehavior.ClientSetNull);
+
+        modelBuilder.Entity<Reservation>()
+            .HasOne(x => x.DropOffLocation)
+            .WithMany(y => y.DropOffReservation)
+            .HasForeignKey(z => z.DropOffLocationID)
+            .OnDelete(DeleteBehavior.ClientSetNull);
+    }
 }
