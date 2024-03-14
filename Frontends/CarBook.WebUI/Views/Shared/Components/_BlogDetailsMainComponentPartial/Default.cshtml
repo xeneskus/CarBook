@@ -4,7 +4,7 @@
     <h2 class="mb-3">@Model.Title</h2>
     <p>@Model.Description</p>
 
-    @await Component.InvokeAsync("_BlogDetailsCloudTagByBlogComponentPartial",new {id=ViewBag.blogid})
+    @await Component.InvokeAsync("_BlogDetailCloudTagByBlogComponentPartial",new {id=ViewBag.blogid})
 
     @await Component.InvokeAsync("_BlogDetailsAuthorAboutComponentPartial",new {id=ViewBag.blogid})
 
@@ -14,6 +14,6 @@
         @await Component.InvokeAsync("_CommentListByBlogComponentPartial",new {id=ViewBag.blogid})
 
         @*  @await Component.InvokeAsync("_AddCommentComponentPartial") *@
-        @await Html.PartialAsync("~/Views/Blog/AddComment.cshtml",new {id=ViewBag.blogid})
+        @*@await Html.PartialAsync("~/Views/Blog/AddComment.cshtml",new {id=ViewBag.blogid})*@
     </div>
 </div>
