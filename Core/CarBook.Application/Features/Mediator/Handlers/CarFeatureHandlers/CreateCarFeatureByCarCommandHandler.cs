@@ -1,4 +1,6 @@
 ﻿using CarBook.Application.Features.Mediator.Commands.CarFeatureCommands;
+using CarBook.Application.Interfaces.CarFeatureInterfaces;
+using CarBook.Domain.Entities;
 using MediatR;
 
 namespace CarBook.Application.Features.Mediator.Handlers.CarFeatureHandlers
