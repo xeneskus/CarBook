@@ -28,5 +28,27 @@ namespace CarBook.WebUI.Areas.Admin.Controllers
             }
             return View();
         }
+        
+        [HttpPost]
+        [Route("Index/{id}")]
+        public async Task<IActionResult> Index(List<ResultCarFeatureByCarIdDto> resultCarFeatureByCarIdDto)
+        {
+
+            foreach (var item in resultCarFeatureByCarIdDto)
+            {
+                if (item.Available)
+                {
+                    var client = _httpClientFactory.CreateClient();
+                    await client.GetAsync("https://localhost:7000/api/CarFeatures/CarFeatureChangeAvailableToTrue?id=" + item.CarFeatureID);
+
+                }
+                else
+                {
+                    var client = _httpClientFactory.CreateClient();
+                    await client.GetAsync("https://localhost:7000/api/CarFeatures/CarFeatureChangeAvailableToFalse?id=" + item.CarFeatureID);
+                }
+            }
+            return RedirectToAction("Index", "AdminCar");
+        }
     }
 }
