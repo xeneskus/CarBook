@@ -4,5 +4,15 @@
     Layout = "~/Views/AdminLayout/Index.cshtml";
 }
 
-<h1>Index</h1>
+<div class="page-content">
+    <div class="container-fluid">
+        @await Component.InvokeAsync("_AdminDashboardStatisticsComponentPartial")
+        <div class="row">
 
+        </div>
+        <div class="row">
+            @await Component.InvokeAsync("_AdminDashboardCarPricingListComponentPartial")
+            @await Component.InvokeAsync("_AdminDashboardBlogListComponentPartial")
+        </div>
+    </div>
+</div>
