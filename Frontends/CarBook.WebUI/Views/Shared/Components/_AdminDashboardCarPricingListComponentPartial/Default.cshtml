@@ -1,5 +1,5 @@
-﻿@model List<ResultCarPricingListWithModelDto>
-
+﻿@*@model List<ResultCarPricingListWithModelDto>
+*@
 <div class="col-xl-6">
 
     <div class="card">
@@ -22,16 +22,16 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach(var item in Model)
-                        {
+               @*         @foreach(var item in Model)
+                        {*@
                             <tr>
-                                <td class="text-truncate">@item.Brand</td>
-                                <td class="text-truncate">@item.model</td>                      
-                                <td class="text-truncate">₺ @item.dailyAmount</td>
-                                <td class="text-truncate">₺ @item.weeklyAmount</td>
-                                <td class="text-truncate">₺ @item.monthlyAmount</td>
+                                <td class="text-truncate">@*@item*@.Brand</td>
+                                <td class="text-truncate">@*@item*@.model</td>                      
+                                <td class="text-truncate">₺@* @item*@.dailyAmount</td>
+                                <td class="text-truncate">₺ @*@item*@.weeklyAmount</td>
+                                <td class="text-truncate">₺ @*@item*@.monthlyAmount</td>
                             </tr>
-                        }
+                        @*}*@
                     </tbody>
                 </table>
             </div>
