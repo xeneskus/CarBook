@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\Mediator\CQRS\Handlers\CarPricingHandlers\" />
+    <Folder Include="Features\CQRS\Handlers\CarPricingHandlers\" />
   </ItemGroup>
 
 </Project>
