@@ -27,6 +27,8 @@ using CarBook.Persistence.Repositories.RentACarRepositories;
 using CarBook.Persistence.Repositories.ReviewRepositories;
 using CarBook.Persistence.Repositories.StatisticsRepositories;
 using CarBook.Persistence.Repositories.TagCloudRepositories;
+using FluentValidation.AspNetCore;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -78,6 +80,7 @@ builder.Services.AddScoped<RemoveContactCommandHandler>();
 
 builder.Services.AddApplicationService(builder.Configuration);
 
+#region Registirations
 builder.Services.AddScoped<CarBookContext>();
 builder.Services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(CommentRepository<>));
@@ -90,6 +93,14 @@ builder.Services.AddScoped(typeof(IRentACarRepository), typeof(RentACarRepositor
 builder.Services.AddScoped(typeof(ICarFeatureRepository), typeof(CarFeatureRepository));
 builder.Services.AddScoped(typeof(ICarDescriptionRepository), typeof(CarDescriptionRepository));
 builder.Services.AddScoped(typeof(IReviewRepository), typeof(ReviewRepository));
+#endregion
+
+
+builder.Services.AddControllers().AddFluentValidation(x =>
+{
+    x.RegisterValidatorsFromAssembly(Assembly.GetExecutingAssembly());
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
