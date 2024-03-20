@@ -7,7 +7,7 @@ using System.Text;
 
 namespace CarBook.Application.Tools
 {
-    internal class JwtTokenGenerator
+    public class JwtTokenGenerator
     {
         public static TokenResponseDto GenerateToken(GetCheckAppUserQueryResult result)
         {
