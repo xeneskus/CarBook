@@ -7,7 +7,7 @@ Users can list suitable cars based on their selected location and create pre-res
 Users can create blogs, and these blogs are open to comments. Reviews can be written along with a rating score.
 
 <h3>Technologies Used</h3>
-🤖 .NET Core 8.0 MVC and API<br>
+🤖 .NET Core 6.0 MVC and API<br>
 🖼️ CQRS, Mediator, and Repository design patterns<br>
 🎡 Layered architecture using Onion Architecture<br>
 💻 Entity Framework Core<br>
